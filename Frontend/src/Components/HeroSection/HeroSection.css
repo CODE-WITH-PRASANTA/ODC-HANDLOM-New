@@ -1,0 +1,112 @@
+
+/* ================================
+   HERO SECTION
+================================ */
+
+.HeroSection {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 380px;
+  max-height: 800px;
+  overflow: hidden;
+  background: #f5eee4;
+  isolation: isolate;
+}
+
+/* ================================
+   SLIDER TRACK
+================================ */
+
+.HeroSection-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+/* ================================
+   INDIVIDUAL SLIDE
+================================ */
+
+.HeroSection-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ================================
+   BANNER IMAGE
+================================ */
+
+.HeroSection-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ================================
+   LARGE SCREENS
+================================ */
+
+@media (min-width: 1600px) {
+  .HeroSection {
+    max-height: 850px;
+  }
+}
+
+/* ================================
+   TABLETS
+================================ */
+
+@media (max-width: 1024px) {
+  .HeroSection {
+    height: 70vh;
+    min-height: 340px;
+  }
+}
+
+/* ================================
+   MOBILE DEVICES
+================================ */
+
+@media (max-width: 768px) {
+  .HeroSection {
+    height: 70vh;
+    min-height: 300px;
+    max-height: 650px;
+  }
+
+  .HeroSection-image {
+    object-position: center;
+  }
+}
+
+/* ================================
+   SMALL MOBILE DEVICES
+================================ */
+
+@media (max-width: 480px) {
+  .HeroSection {
+    height: 70vh;
+    min-height: 260px;
+    max-height: 520px;
+  }
+}
+
+/* ================================
+   REDUCED MOTION ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .HeroSection-track {
+    transition: none;
+  }
+}
