@@ -1,0 +1,387 @@
+
+/* ========================================
+   TOPBAR
+======================================== */
+
+.Topbar {
+  width: 100%;
+  height: 102px;
+  background: #ffffff;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #eeeeee;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.Topbar *,
+.Topbar *::before,
+.Topbar *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   TOPBAR CONTAINER
+======================================== */
+
+.Topbar-container {
+  width: 100%;
+  max-width: 1150px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+
+.Topbar-logo {
+  flex: 0 0 130px;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.Topbar-logo img {
+  display: block;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ========================================
+   SEARCH BAR
+======================================== */
+
+.Topbar-search {
+  position: relative;
+  flex: 1;
+  height: 43px;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  background: #f8f1ed;
+  border: 1px solid #d48e60;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.Topbar-search input {
+  width: 100%;
+  height: 100%;
+  padding: 0 55px 0 17px;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: #333333;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.Topbar-search input::placeholder {
+  color: #898581;
+  opacity: 1;
+}
+
+.Topbar-search-hint {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: #898581;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.Topbar-search-button {
+  position: absolute;
+  top: 0;
+  right: 10px;
+
+  width: 34px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #c88a59;
+
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.Topbar-search-button svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.8;
+}
+
+.Topbar-search-button:hover {
+  color: #a61e4d;
+}
+
+/* ========================================
+   ACTION ICONS
+======================================== */
+
+.Topbar-actions {
+  flex: 0 0 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 23px;
+}
+
+.Topbar-action {
+  position: relative;
+  width: 35px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #191919;
+
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.Topbar-action-icon {
+  width: 29px;
+  height: 29px;
+  stroke-width: 1.45;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.Topbar-user-icon {
+  width: 27px;
+  height: 27px;
+}
+
+.Topbar-action:hover .Topbar-action-icon {
+  color: #a51d4b;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   NOTIFICATION BADGES
+======================================== */
+
+.Topbar-badge-wrapper {
+  position: relative;
+}
+
+.Topbar-badge {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #a51d4b;
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ========================================
+   LARGE LAPTOPS
+======================================== */
+
+@media (min-width: 1200px) {
+  .Topbar-container {
+    max-width: 1150px;
+  }
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 900px) {
+  .Topbar {
+    height: 88px;
+  }
+
+  .Topbar-container {
+    gap: 22px;
+    padding: 0 22px;
+  }
+
+  .Topbar-logo {
+    flex-basis: 112px;
+    width: 112px;
+  }
+
+  .Topbar-logo img {
+    width: 110px;
+  }
+
+  .Topbar-actions {
+    flex-basis: 150px;
+    gap: 13px;
+  }
+
+  .Topbar-search {
+    height: 41px;
+  }
+
+  .Topbar-search-hint {
+    display: none;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .Topbar {
+    height: auto;
+    min-height: 108px;
+    padding: 12px 0;
+  }
+
+  .Topbar-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo actions"
+      "search search";
+
+    gap: 12px 15px;
+    padding: 0 16px;
+  }
+
+  .Topbar-logo {
+    grid-area: logo;
+    justify-content: flex-start;
+    width: 105px;
+    flex-basis: auto;
+  }
+
+  .Topbar-logo img {
+    width: 105px;
+  }
+
+  .Topbar-actions {
+    grid-area: actions;
+    flex-basis: auto;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+
+  .Topbar-action {
+    width: 29px;
+    height: 34px;
+  }
+
+  .Topbar-action-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .Topbar-user-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .Topbar-badge {
+    right: -3px;
+    bottom: -2px;
+    width: 17px;
+    height: 17px;
+    font-size: 10px;
+  }
+
+  .Topbar-search {
+    grid-area: search;
+    width: 100%;
+    height: 40px;
+  }
+
+  .Topbar-search input {
+    font-size: 14px;
+    padding-left: 15px;
+  }
+
+  .Topbar-search-button {
+    right: 7px;
+  }
+
+  .Topbar-search-button svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 360px) {
+  .Topbar-container {
+    padding: 0 11px;
+    gap: 11px 8px;
+  }
+
+  .Topbar-logo {
+    width: 92px;
+  }
+
+  .Topbar-logo img {
+    width: 92px;
+  }
+
+  .Topbar-actions {
+    gap: 10px;
+  }
+
+  .Topbar-action {
+    width: 26px;
+  }
+
+  .Topbar-action-icon {
+    width: 23px;
+    height: 23px;
+  }
+}
