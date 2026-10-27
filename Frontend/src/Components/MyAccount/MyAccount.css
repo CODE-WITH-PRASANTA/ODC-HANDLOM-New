@@ -1,0 +1,1082 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
+
+/* ==========================================================
+   MyAccount  ·  ODC Handloom
+   All class names are prefixed with the component name.
+========================================================== */
+.MyAccount {
+  --MyAccount-gold: #d4952a;
+  --MyAccount-gold-light: #f0c36d;
+  --MyAccount-brown: #7a4519;
+  --MyAccount-ink: #1d150d;
+  --MyAccount-muted: #7b7165;
+  --MyAccount-field: #fcf8f2;
+  --MyAccount-line: #eadfce;
+  --MyAccount-danger: #c8372d;
+  --MyAccount-success: #2c7a4b;
+  --MyAccount-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --MyAccount-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px 20px;
+  background:
+    radial-gradient(800px 460px at 0% 0%, rgba(212, 149, 42, 0.14), transparent 70%),
+    radial-gradient(700px 460px at 100% 100%, rgba(122, 69, 25, 0.14), transparent 70%),
+    #f8f1e6;
+  font-family: var(--MyAccount-sans);
+  font-size: 14px;
+  color: var(--MyAccount-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.MyAccount *,
+.MyAccount *::before,
+.MyAccount *::after {
+  box-sizing: border-box;
+}
+
+.MyAccount h1,
+.MyAccount h2,
+.MyAccount p,
+.MyAccount ol {
+  margin: 0;
+  padding: 0;
+}
+
+.MyAccount ol {
+  list-style: none;
+}
+
+.MyAccount button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.MyAccount button:focus-visible,
+.MyAccount__otpBox:focus-visible,
+.MyAccount__rememberInput:focus-visible + .MyAccount__rememberBox {
+  outline: 2px solid var(--MyAccount-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Card ---------- */
+.MyAccount__card {
+  display: grid;
+  grid-template-columns: 44fr 56fr;
+  width: min(960px, 100%);
+  min-height: 600px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow:
+    0 34px 70px rgba(63, 38, 16, 0.2),
+    0 6px 18px rgba(63, 38, 16, 0.08);
+}
+
+/* ==========================================================
+   Left showcase panel
+========================================================== */
+.MyAccount__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 26px 28px 30px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(460px 280px at 18% 0%, rgba(244, 200, 116, 0.5), transparent 70%),
+    linear-gradient(180deg, #b0803a 0%, #7d4f20 30%, #56340f 62%, #3d2510 100%);
+}
+
+/* subtle woven-fabric texture */
+.MyAccount__weave {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.07;
+  background-image:
+    repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(-45deg, #fff 0 1px, transparent 1px 7px);
+  pointer-events: none;
+}
+
+/* floating golden spheres */
+.MyAccount__orb {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #fbe3a6 0%, #d9a24c 38%, #96621f 72%, #6b4214 100%);
+  box-shadow:
+    inset -3px -5px 8px rgba(60, 30, 5, 0.35),
+    0 8px 18px rgba(30, 15, 0, 0.35);
+  animation: MyAccount-float 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.MyAccount__orb--1 { top: 9%; right: 8%; width: 40px; height: 40px; animation-duration: 8s; }
+.MyAccount__orb--2 { top: 31%; left: 5%; width: 24px; height: 24px; animation-duration: 6s; animation-delay: -2s; }
+.MyAccount__orb--3 { top: 24%; left: 30%; width: 11px; height: 11px; animation-duration: 5s; animation-delay: -1s; }
+.MyAccount__orb--4 { top: 47%; right: 10%; width: 15px; height: 15px; animation-duration: 9s; animation-delay: -3s; }
+
+@keyframes MyAccount-float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-10px) translateX(3px); }
+}
+
+/* brand */
+.MyAccount__brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 11px;
+}
+
+.MyAccount__logo {
+  display: grid;
+  place-items: center;
+  height: 46px;
+  max-width: 120px;
+  padding: 5px 9px;
+  border: 1px solid rgba(240, 195, 109, 0.7);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(20, 10, 0, 0.35);
+}
+
+.MyAccount__logoImg {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.MyAccount__brandName {
+  font-family: var(--MyAccount-serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.MyAccount__brandTag {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--MyAccount-gold-light);
+}
+
+/* heading block */
+.MyAccount__panelBody {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  max-width: 330px;
+  margin-top: 6px;
+  text-align: center;
+  animation: MyAccount-rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.MyAccount__badge {
+  padding: 6px 16px;
+  border: 1px solid rgba(240, 195, 109, 0.6);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fbe3b0;
+}
+
+.MyAccount__panelTitle {
+  font-family: var(--MyAccount-serif);
+  font-size: clamp(26px, 2.8vw, 34px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.MyAccount__panelText {
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(255, 244, 225, 0.9);
+}
+
+@keyframes MyAccount-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* artwork */
+.MyAccount__art {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: min(290px, 100%);
+  aspect-ratio: 1 / 1;
+  margin-block: auto;
+  flex-shrink: 1;
+}
+
+.MyAccount__orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed rgba(240, 195, 109, 0.5);
+  border-radius: 50%;
+  animation: MyAccount-spin 36s linear infinite;
+}
+
+.MyAccount__orbitDot {
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff2c4, #f0b43a 70%);
+  box-shadow: 0 0 0 4px rgba(240, 180, 58, 0.22), 0 0 14px 3px rgba(240, 180, 58, 0.7);
+}
+
+@keyframes MyAccount-spin {
+  to { transform: rotate(360deg); }
+}
+
+.MyAccount__frame {
+  position: relative;
+  width: 76%;
+  height: 90%;
+  padding: 5px;
+  border-radius: 999px 999px 24px 24px;
+  background: linear-gradient(135deg, #f8d98c, #b9822f 35%, #f4cf7e 55%, #8f5c1d 100%);
+  background-size: 200% 200%;
+  box-shadow:
+    0 0 0 8px rgba(255, 220, 150, 0.08),
+    0 22px 40px rgba(20, 8, 0, 0.5);
+  animation:
+    MyAccount-archIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    MyAccount-shimmer 8s ease-in-out infinite,
+    MyAccount-bob 6s ease-in-out infinite 1s;
+}
+
+.MyAccount__arch {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 999px 999px 20px 20px;
+  background: #2d1b0a;
+}
+
+.MyAccount__archImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  animation: MyAccount-zoom 16s ease-in-out infinite alternate;
+}
+
+.MyAccount__archShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(20, 8, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+.MyAccount__chip {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(70, 42, 20, 0.62);
+  backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  transform: translateX(-50%);
+}
+
+.MyAccount__chip svg {
+  width: 13px;
+  height: 13px;
+  color: var(--MyAccount-gold-light);
+}
+
+@keyframes MyAccount-archIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes MyAccount-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes MyAccount-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+@keyframes MyAccount-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* panel button */
+.MyAccount__panelBtn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 190px;
+  height: 44px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--MyAccount-brown);
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(20, 8, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.MyAccount__panelBtn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.MyAccount__panelBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(20, 8, 0, 0.38);
+}
+
+/* ==========================================================
+   Right form panel
+========================================================== */
+.MyAccount__formWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px clamp(22px, 5vw, 56px);
+  background: #fff;
+}
+
+.MyAccount__form {
+  width: 100%;
+  max-width: 400px;
+  animation: MyAccount-rise 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.MyAccount__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.MyAccount__title {
+  font-family: var(--MyAccount-serif);
+  font-size: clamp(26px, 2.8vw, 34px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--MyAccount-ink);
+  outline: none;
+}
+
+.MyAccount__titleLine {
+  width: 48px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #e3a93d, #c47f1a);
+}
+
+.MyAccount__subtitle {
+  max-width: 340px;
+  margin-top: 13px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--MyAccount-muted);
+}
+
+/* steps */
+.MyAccount__steps {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.MyAccount__stepDot {
+  width: 24px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--MyAccount-line);
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.MyAccount__stepDot.is-done {
+  background: var(--MyAccount-gold);
+}
+
+.MyAccount__stepDot.is-current {
+  width: 36px;
+}
+
+/* alerts */
+.MyAccount__alerts:empty {
+  display: none;
+}
+
+.MyAccount__alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.MyAccount__alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  animation: MyAccount-rise 0.35s ease both;
+}
+
+.MyAccount__alert svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+}
+
+.MyAccount__alert--success {
+  background: #eaf6ee;
+  border: 1px solid #c4e4cf;
+  color: var(--MyAccount-success);
+}
+
+.MyAccount__alert--error {
+  background: #fdeeec;
+  border: 1px solid #f4c9c4;
+  color: var(--MyAccount-danger);
+}
+
+/* fields */
+.MyAccount__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.MyAccount__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.MyAccount__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.MyAccount__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--MyAccount-ink);
+}
+
+.MyAccount__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--MyAccount-line);
+  border-radius: 12px;
+  background: var(--MyAccount-field);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.MyAccount__control:hover {
+  border-color: #dcc9a8;
+}
+
+.MyAccount__control:focus-within {
+  border-color: var(--MyAccount-gold);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(212, 149, 42, 0.16);
+}
+
+.MyAccount__control.is-error {
+  border-color: var(--MyAccount-danger);
+  animation: MyAccount-shake 0.35s ease;
+}
+
+.MyAccount__control.is-error:focus-within {
+  box-shadow: 0 0 0 3px rgba(200, 55, 45, 0.14);
+}
+
+@keyframes MyAccount-shake {
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.MyAccount__controlIcon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--MyAccount-gold);
+}
+
+.MyAccount__input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--MyAccount-ink);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  text-overflow: ellipsis;
+}
+
+.MyAccount__input::placeholder {
+  color: #a89d8f;
+}
+
+select.MyAccount__input {
+  cursor: pointer;
+}
+
+select.MyAccount__input:has(option[value=""]:checked) {
+  color: #a89d8f;
+}
+
+select.MyAccount__input option {
+  color: var(--MyAccount-ink);
+}
+
+.MyAccount__chevron {
+  position: absolute;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  color: #5c5348;
+  pointer-events: none;
+}
+
+.MyAccount__eye {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  margin-right: -6px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: #5c5348;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.MyAccount__eye svg {
+  width: 18px;
+  height: 18px;
+}
+
+.MyAccount__eye:hover {
+  background: rgba(212, 149, 42, 0.12);
+  color: var(--MyAccount-brown);
+}
+
+.MyAccount__error {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--MyAccount-danger);
+}
+
+/* strength meter */
+.MyAccount__strength {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.MyAccount__strengthBars {
+  display: flex;
+  flex: 1;
+  gap: 5px;
+}
+
+.MyAccount__strengthBar {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--MyAccount-line);
+  transition: background 0.25s ease;
+}
+
+.MyAccount__strength[data-level="1"] .MyAccount__strengthBar.is-on,
+.MyAccount__strength[data-level="0"] .MyAccount__strengthBar.is-on { background: #d9534f; }
+.MyAccount__strength[data-level="2"] .MyAccount__strengthBar.is-on { background: #e8a33a; }
+.MyAccount__strength[data-level="3"] .MyAccount__strengthBar.is-on { background: #9bb83a; }
+.MyAccount__strength[data-level="4"] .MyAccount__strengthBar.is-on { background: #2c9a5b; }
+
+.MyAccount__strengthLabel {
+  min-width: 54px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--MyAccount-muted);
+}
+
+/* row: remember + forgot */
+.MyAccount__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: -2px;
+}
+
+.MyAccount__remember {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: #5f564b;
+  cursor: pointer;
+  user-select: none;
+}
+
+.MyAccount__rememberInput {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.MyAccount__rememberBox {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #8c8174;
+  border-radius: 5px;
+  background: #fff;
+  color: transparent;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.MyAccount__rememberBox svg {
+  width: 12px;
+  height: 12px;
+}
+
+.MyAccount__rememberInput:checked + .MyAccount__rememberBox {
+  border-color: var(--MyAccount-brown);
+  background: linear-gradient(135deg, #cf8d24, #8a531c);
+  color: #fff;
+}
+
+.MyAccount__link {
+  padding: 3px 0;
+  border: 0;
+  background: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--MyAccount-brown);
+  transition: color 0.2s ease;
+}
+
+.MyAccount__link:hover:not(:disabled) {
+  color: var(--MyAccount-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.MyAccount__link:disabled {
+  color: #a89d8f;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+/* submit */
+.MyAccount__submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  height: 50px;
+  margin-top: 2px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #d08d22 0%, #a3631d 55%, #7e4a1b 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(143, 88, 28, 0.32);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.MyAccount__submit svg {
+  width: 18px;
+  height: 18px;
+}
+
+.MyAccount__submit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.MyAccount__submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(143, 88, 28, 0.4);
+}
+
+.MyAccount__submit:hover:not(:disabled)::after {
+  transform: translateX(120%);
+}
+
+.MyAccount__submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.MyAccount__submit:disabled {
+  filter: saturate(0.7) brightness(1.05);
+  cursor: progress;
+}
+
+.MyAccount__spinner {
+  width: 17px;
+  height: 17px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: MyAccount-spin 0.7s linear infinite;
+}
+
+.MyAccount__switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--MyAccount-muted);
+}
+
+.MyAccount__switch .MyAccount__link {
+  margin-left: 3px;
+}
+
+/* OTP */
+.MyAccount__otp {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(5px, 1.4vw, 9px);
+}
+
+.MyAccount__otpBox {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  border: 1px solid var(--MyAccount-line);
+  border-radius: 11px;
+  background: var(--MyAccount-field);
+  font-family: var(--MyAccount-serif);
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--MyAccount-ink);
+  caret-color: var(--MyAccount-gold);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.MyAccount__otpBox:focus {
+  border-color: var(--MyAccount-gold);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(212, 149, 42, 0.16);
+  outline: none;
+}
+
+.MyAccount__otp.is-error .MyAccount__otpBox {
+  border-color: var(--MyAccount-danger);
+}
+
+/* success state */
+.MyAccount__done {
+  align-items: center;
+  text-align: center;
+}
+
+.MyAccount__doneIcon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e3a93d, #a3631d);
+  color: #fff;
+  box-shadow: 0 0 0 8px rgba(212, 149, 42, 0.15), 0 12px 24px rgba(143, 88, 28, 0.35);
+  animation: MyAccount-pop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.MyAccount__doneIcon svg {
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes MyAccount-pop {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.MyAccount__doneText {
+  max-width: 300px;
+  margin-bottom: 4px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--MyAccount-muted);
+}
+
+/* ==========================================================
+   Responsive
+========================================================== */
+
+/* Small laptops */
+@media (max-width: 1100px) {
+  .MyAccount__card {
+    width: min(900px, 100%);
+    min-height: 580px;
+  }
+
+  .MyAccount__panel {
+    padding: 22px 20px 26px;
+  }
+
+  .MyAccount__art {
+    width: min(250px, 100%);
+  }
+}
+
+/* Tablets and below: stack the panels */
+@media (max-width: 860px) {
+  .MyAccount {
+    align-items: flex-start;
+    padding: 16px 14px 28px;
+  }
+
+  .MyAccount__card {
+    grid-template-columns: 1fr;
+    width: min(560px, 100%);
+    min-height: 0;
+    margin-inline: auto;
+    border-radius: 22px;
+  }
+
+  .MyAccount__panel {
+    gap: 12px;
+    padding: 24px 22px 26px;
+  }
+
+  .MyAccount__art {
+    width: 230px;
+    margin-block: 4px;
+  }
+
+  .MyAccount__formWrap {
+    padding: 30px 26px 34px;
+  }
+
+  .MyAccount__form {
+    max-width: 440px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 600px) {
+  .MyAccount {
+    padding: 10px 10px 22px;
+  }
+
+  .MyAccount__card {
+    border-radius: 20px;
+  }
+
+  .MyAccount__panel {
+    align-items: stretch;
+    gap: 10px;
+    padding: 18px 16px 20px;
+  }
+
+  .MyAccount__logo {
+    height: 40px;
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+
+  .MyAccount__brandName {
+    font-size: 18px;
+  }
+
+  .MyAccount__brandTag {
+    font-size: 10.5px;
+  }
+
+  .MyAccount__panelBody {
+    margin-top: 2px;
+    gap: 8px;
+  }
+
+  .MyAccount__panelText {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .MyAccount__art {
+    width: 180px;
+    margin-inline: auto;
+  }
+
+  .MyAccount__chip {
+    bottom: 8px;
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  /* the form already has switch links, so the panel button is hidden */
+  .MyAccount__panelBtn {
+    display: none;
+  }
+
+  .MyAccount__orb--1 { width: 30px; height: 30px; top: 6%; }
+  .MyAccount__orb--4 { display: none; }
+
+  .MyAccount__formWrap {
+    padding: 24px 16px 28px;
+  }
+
+  .MyAccount__head {
+    margin-bottom: 16px;
+  }
+
+  /* 16px inputs stop iOS from zooming in on focus */
+  .MyAccount__input {
+    font-size: 16px;
+  }
+
+  .MyAccount__control {
+    height: 48px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .MyAccount__art {
+    display: none;
+  }
+
+  .MyAccount__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .MyAccount__row {
+    flex-wrap: wrap;
+  }
+
+  .MyAccount__otpBox {
+    height: 46px;
+    font-size: 19px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .MyAccount__formWrap {
+    padding: 22px 12px 26px;
+  }
+
+  .MyAccount__title {
+    font-size: 25px;
+  }
+
+  .MyAccount__brandName {
+    font-size: 16px;
+  }
+
+  .MyAccount__logo {
+    max-width: 96px;
+  }
+}
+
+/* Wide screens */
+@media (min-width: 1500px) {
+  .MyAccount__card {
+    width: min(1040px, 100%);
+    min-height: 640px;
+  }
+}
+
+/* Short landscape screens */
+@media (max-height: 620px) and (min-width: 861px) {
+  .MyAccount {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .MyAccount *,
+  .MyAccount *::before,
+  .MyAccount *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -11,6 +11,8 @@ import Blog from "./Pages/Blog/Blog";
 import Collections from "./Pages/Collections/Collections";
 import About from "./Pages/About/About";
 import Wishlist from "./Components/Wishlist/Wishlist";
+import Cart from "./Pages/Cart/Cart";
+import MyAccount from "./Components/MyAccount/MyAccount";
 
 
 
@@ -24,12 +26,13 @@ const App = () => {
        
        <Route path="/" element={<Home />} />
        <Route path="/about" element={<About/>} />
-
        <Route path="/collections/mens-wear" element={<Collections/>} />
        <Route path="/blog" element={<Blog/>} />
        <Route path="/faq" element={<Faq/>} />
        <Route path="/contact" element={<Contact/>} />
+       <Route path="/cart" element={<Cart/>} />
        <Route path="/wishlist" element={<Wishlist/>} />
+       <Route path="/account" element={<MyAccount/>} />
       </Routes>
       <Footer />
       <FloatingIcons/>
